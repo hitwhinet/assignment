@@ -1,0 +1,29 @@
+@charset "utf-8";
+body{margin:0;background-color:#ededed;}
+table{border-collapse:collapse;}
+.box{width:90%;min-width:500px;margin:20px auto;border:1px solid #ccc;font-size:12px;font-family:"simsun";background:#fff;overflow:hidden;}
+.title{line-height:60px;border-bottom: 1px solid #ccc;font-size:2em;font-weight:bold;padding-left:20px;}
+.main{font-size:14px;color:#555;margin-left:150px;}
+.menu{float:left;width:150px;margin-bottom:20px;margin-left:-150px;}
+.menu ul{margin:0px;padding:0px;list-style:none;}
+.menu li{height:36px;line-height:36px;border-bottom:1px solid #ccc;border-right:1px solid #ccc;padding-left:29px;}
+.menu-title1,.menu-title2,.menu-title3{font-size:14px;font-weight:900;color:#333;}
+.menu a{color:#555;text-decoration:none;font-size:13px;}
+.menu .current{border-right:0;}
+.menu .current a{color:#5b79f8;}
+.main-title{height:36px;line-height:36px;padding-left:20px;font-size:14px;font-weight:900;border-bottom:1px solid #ccc;}
+.main-content{margin:15px;font-size:14px;}
+.settime input[type=text]{border:1px solid #bbb;padding:3px;color:#555;width:200px;}
+.settime th{padding:10px 15px;text-align:left;font-weight:normal;vertical-align:top;}
+.settime td{padding:4px 0;}
+.settime select{padding:3px;color:#555;}
+.settime textarea{width:400px;height:80px;padding:2px;color:#555;}
+.settime input[type=submit]{padding:3px 10px;cursor:pointer;}
+.settime input[type=reset]{padding:3px 10px;cursor:pointer;}
+.tip{margin:10px 0 10px 27px;color:#0066ff;}
+.showfreetime{margin:15px;font-size:14px;}
+.list{width:85%;margin:0 auto;text-align:center;}
+.list th{border:0px solid #000;height:50px;font-size:20px;color:#000;background-color:#FFF;opacity:0.9;}
+.list td{border:1px solid #000;height:40px;font-size:18px;color:#444;background-color:#FFF;opacity:0.9;}
+.list td a{font-size:13px;color:#5DB9CE;font-family:'Microsoft YaHei';text-decoration:none;}
+.list td a:hover{color:#FA3818;text-decoration:underline;}

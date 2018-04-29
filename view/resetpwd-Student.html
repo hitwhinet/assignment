@@ -1,0 +1,111 @@
+<?php require './view/header-Student.html'; ?>
+
+<div class="main-title">修改密码</div>
+
+<div class="main-content">
+	<!--密码长度暂定为16字符之内-->
+	<p>注意：新密码长度限制为16个字符之内，不能含有空格、制表符等空白字符。</p>
+<form method="post"><!--POST请求提交到resetpwd.php-->
+	<table class="settime">
+		<tr>
+			<th></th>
+		</tr>
+		<tr>
+			<th>请输入原密码：</th>
+			<td>
+				<input name="oldpwd" type="password" value="" id="oldpwd"/>		
+			</td>	
+		</tr>
+		<tr>
+			<th>请输入新密码：</th>
+			<td>
+				<input name="newpwd" type="password" value="" id="newpwd"/>		
+			</td>	
+		</tr>
+		<tr>
+			<th>再输入新密码：</th>
+			<td>
+				<input name="newpwd2" type="password" value="" id="newpwd2"/>		
+			</td>	
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" value="提交" id="submit"/><input type="reset" value="重置" />
+			</td>
+		</tr>
+	</table>
+</form>
+</div>
+
+<script type="text/javascript">
+	//点亮当前菜单链接
+	setMenu('resetpwd');
+
+	//JavaScript脚本
+	//Last Modified by Zihao Wei on 4/19/2018
+	//点击“提交”按钮后执行下述脚本
+	//去掉三个密码中的空格、检查密码长度、检查两次输入的新密码是否一致
+	//若任一检查未通过 则alert报错并清空输入框
+	var submit = document.getElementById("submit");
+	submit.onclick = function(){
+		var oldpwd = document.getElementById("oldpwd");
+		var newpwd = document.getElementById("newpwd");
+		var newpwd2 = document.getElementById("newpwd2");
+//		var regex=/^[/s]+$/;		//正则表达式 检测是否含有空格
+
+		//去掉密码中的空格
+		oldpwd.value = oldpwd.value.replace(/\s+/g,"");
+		newpwd.value = newpwd.value.replace(/\s+/g,"");
+		newpwd2.value = newpwd2.value.replace(/\s+/g,"");
+//		alert(oldpwd.value);
+
+		//判断密码是否为空 
+		if(oldpwd.value.length == 0){
+	        alert("密码不能含空白字符、密码不能为空！"); 
+			oldpwd.value = "";
+			newpwd.value = "";
+			newpwd2.value = "";
+	        return false; 
+        }
+
+		if(newpwd.value.length == 0){
+	        alert("密码不能含空白字符、密码不能为空！"); 
+			oldpwd.value = "";
+			newpwd.value = "";
+			newpwd2.value = "";
+	        return false; 
+        }
+
+		if(newpwd2.value.length == 0){
+	        alert("密码不能含空白字符、密码不能为空！"); 
+			oldpwd.value = "";
+			newpwd.value = "";
+			newpwd2.value = "";
+	        return false; 
+        }
+
+		//判断密码长度是否小于等于16字符
+		if(oldpwd.value.length > 16 || 
+		   newpwd.value.length > 16 || 
+		   newpwd2.value.length > 16){
+			alert("密码太长啦！重设一下密码哈~不能超过16个字符");
+			oldpwd.value = "";
+			newpwd.value = "";
+			newpwd2.value = "";
+			return false;
+		}
+
+		//检查两次输入的新密码是否一致
+		if(newpwd.value != newpwd2.value){
+			alert("两次输入的新密码不一样哦...请检查后重新输入");
+			oldpwd.value = "";
+			newpwd.value = "";
+			newpwd2.value = "";
+		
+			return false;
+		}
+		return true;
+	};
+
+</script>
+<?php require './view/footer.html';

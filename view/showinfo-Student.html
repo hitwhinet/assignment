@@ -1,0 +1,26 @@
+<?php require './view/header-Student.html'; ?>
+<div class="main-title">我的信息</div>
+<div class="main-content">
+	<?php if(isset($user_data)): ?>
+		<p>学号：<?php echo $user_data[0]; ?></p>
+		<p>姓名：<?php echo $user_data[1]; ?></p>
+		<p>班级：<?php echo $user_data[2]; ?></p>
+		<!--
+		<p>班级：<?php echo $user_data.class_s; ?></p>
+		<p>爱好：<?php echo implode('、',$user_data['hobby']) ?></p>
+		<p>个人简介：<?php echo nl2br($user_data['description']); ?></p>
+		-->
+	<?php else:?>
+		<p>连接数据库失败; </p>
+		<!--
+		<p>学号：<?php echo '150430233'; ?></p>
+		<p>姓名：<?php echo '令狐冲'; ?></p>
+		<p>院系：<?php echo '战略忽悠学院'; ?></p>
+		-->
+	<?php endif; ?>
+</div>
+<script>
+	//点亮当前菜单链接
+	setMenu('showinfo-Student');
+</script>
+<?php require './view/footer.html';

@@ -1,0 +1,34 @@
+<?php require './view/header-Teacher.html'; ?>
+<div class="main-title">我的信息</div>
+<div class="main-content">
+	<!--如果在showinfo-Teacher.php中设置了user_data变量 则显示对应信息 
+	否则提示连接数据库失败-->
+	<?php if(isset($user_data)): ?>
+		<p>职工号：<?php echo $user_data[0]; ?></p>	
+		<p>姓名：<?php echo $user_data[1]; ?></p>	
+		<p>院系：<?php echo $user_data[2]; ?></p>	
+		<p>预约地点：<?php echo $user_data[3]; ?></p>	
+		<!--
+		<p>电话：<?php echo $user_data[4]; ?></p>	
+		<p>姓名：<?php echo $user_data['name']; ?></p>
+		<p>性别：<?php echo $user_data['gender']; ?></p>
+		<p>血型：<?php echo $user_data['blood']; ?></p>
+		<p>爱好：<?php echo implode('、',$user_data['hobby']) ?></p>
+		<p>个人简介：<?php echo nl2br($user_data['description']); ?></p>
+		-->
+	<?php else: ?>
+		<p>连接数据库失败</p>
+		<!--
+		<p>工号：<?php echo '4010086'; ?></p>
+		<p>姓名：<?php echo '东方不败'; ?></p>
+		<p>院系：<?php echo '战略忽悠学院'; ?></p>
+		<p>工作地点：<?php echo '研究院3号楼666'; ?></p>
+		<p>联系方式：<?php echo '13800318000'; ?></p>
+		-->
+	<?php endif; ?>
+</div>
+<script>
+	//点亮当前菜单链接
+	setMenu('showinfo-Teacher');
+</script>
+<?php require './view/footer.html';

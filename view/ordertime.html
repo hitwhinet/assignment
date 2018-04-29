@@ -1,0 +1,53 @@
+<?php require './view/header-Student.html'; ?>
+<div class="main-title">预约教师时间</div>
+
+<form method="post"><!--POST请求提交到ordertime.php-->
+	<table class="settime">
+		<tr>
+			<th>输入教师姓名：</th>
+			<td>
+				<input name="name" type="text" value="" />		
+			</td>	
+			<td colspan="2" align="center">
+				<input type="submit" value="搜索" /><input type="reset" value="重置" />
+			</td>
+		</tr>
+	</table>
+</form>
+
+<?php if(count($freetime[0])):?>
+	<br>
+	<div class="showfreetime">查询结果：</div>
+	<table class="list">
+		<tr><th>日期</th><th>节次</th><th>教师姓名</th><th>教师院系</th><th>办公地点</th><th>教师电话</th><th>操作</th></tr>
+		<?php foreach($freetime as $v): ?>
+			<tr>
+				<td><?php echo $v[0]; ?></td>
+				<td><?php echo $v[1]; ?></td>
+				<td><?php echo $v[2]; ?></td>
+				<td><?php echo $v[3]; ?></td>
+				<td><?php echo $v[4]; ?></td>
+				<td><?php echo $v[5]; ?></td>
+				<!--点击“我们约起”发送GET请求 date日期 clsid节次 tname教师姓名-->
+				<td><a href="./ordertime.php?date=<?php echo $v[0]; ?>&clsid=<?php echo $v[1]; ?>&tname=<?php echo $teachername; ?>">我们约起~</a></td>
+			</tr>
+		<?php endforeach;?>
+	</table>
+<?php elseif(isset($freetime)):
+	echo "<script> alert('该老师尚未设置空闲时间')  </script>";
+	header('Location: ordertime.php');
+?>
+<?php endif; ?>
+
+<!--
+<?php if(isset($orderresult)):?>
+	<?php echo "预约结果：".$orderresult; ?>
+	<?php unset($orderresult); ?>
+<?php endif;?>
+-->
+
+<script>
+	//点亮当前菜单链接
+	setMenu('ordertime');
+</script>
+<?php require './view/footer.html';

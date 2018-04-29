@@ -1,0 +1,30 @@
+<?php require './view/header-Student.html'; ?>
+<div class="main-title">查看我的预约</div>
+
+<!--如果在orderinfo-Student.php文件中设置了orderinfo变量 则执行下述PHP代码-->
+<?php if(isset($orderinfo)):?>
+	<div class="main-content">
+		<p>我的预约情况：</p>
+	</div>
+	<table class="list">
+		<tr><th>日期</th><th>节次</th><th>教师</th><th>教师院系</th><th>办公室</th><th>联系电话</th></tr>
+		<!--取出orderinfo中的每个元素 将这个取出的元素作为变量v 在表格中显示-->
+		<?php foreach($orderinfo as $v): ?>
+			<tr>
+				<td><?php echo $v[0]; ?></td>
+				<td><?php echo $v[1]; ?></td>
+				<td><?php echo $v[2]; ?></td>
+				<td><?php echo $v[3]; ?></td>
+				<td><?php echo $v[4]; ?></td>
+				<td><?php echo $v[5]; ?></td>
+			</tr>
+		<?php endforeach;?>
+	</table>
+<?php else:{echo "暂无预约信息"; }?>   <!--若未设置orderinfo变量 则显示“暂无预约信息”-->
+<?php endif; ?>
+
+<script>
+	//点亮当前菜单链接
+	setMenu('orderinfo-Student');
+</script>
+<?php require './view/footer.html';

@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>教师闲时预约系统--教师管理</title>
+<link rel="stylesheet" href="./css/style.css?v=20161231204509">
+</head>
+<body>
+<div class="box">
+	<div class="title">教师闲时预约系统--教师管理</div>
+	<div class="main">
+		<div class="menu">
+			<ul>
+				<li class="menu-title1">首页</li>
+					<li id="showinfo-Teacher"><a href="./showinfo-Teacher.php">我的信息</a></li>
+				<li class="menu-title2">我的预约</li>
+					<li id="settime"><a href="./settime.php">设置空闲时间</a></li>
+					<li id="orderinfo-Teacher"><a href="./orderinfo-Teacher.php">查看我的预约</a></li>
+				<li class="menu-title3">系统功能</li>
+					<li id="resetpwd"><a href="./resetpwd-Teacher.php">修改密码</a></li>
+					<li><a href="./logout.php">退出登录</a></li>
+
+				<!--
+				<li class="menu-title1">我的预约</li>
+				<li id="showinfo"><a href="./showinfo.php">预约教师时间</a></li>
+				<li id="userinfo"><a href="./userinfo.php">查看我的预约</a></li>
+				<li id="photo"><a href="./photo.php">上传头像</a></li>
+				<li id="album"><a href="./album.php">我的相册</a></li>
+				<li class="menu-title2">系统功能</li>
+				<li><a href="./logout.php">退出登录</a></li>
+				-->
+			</ul>
+		</div>
+		<script>
+			function setMenu(target){
+				document.getElementById(target).className += " current";
+			}
+		</script>

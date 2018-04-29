@@ -1,0 +1,59 @@
+<?php require './view/header-Teacher.html'; ?>
+<div class="main-title">设置空闲时间</div>
+<div class="main-content">
+	<!--获取当前时间（年/月/日）并将“日”加一天作为明天的日期-->
+	<p>设置明天（<?php echo date("Y/m/d",strtotime("+1 day")); ?>）的空闲时间</p>
+</div>
+<?php if(isset($success)):?><!--如果在settime.php中设置了success变量，则显示“保存成功” -->
+	<div class="tip">保存成功</div>
+<?php endif; ?>
+<form method="post" ><!--POST请求将发送到settime.php-->
+	<table class="settime">
+		<tr>
+			<th>节次：第</th>
+			<td>
+				<select name="clstime">
+					<!--settime.php中的数组clstime元素决定下拉菜单内容 -->
+					<?php foreach($clstime as $v): ?>
+					<!--将clstime中的元素依次取出到变量v 并显示变量v-->
+						<option value="<?php echo $v; ?>"> 
+							<?php echo $v; ?>
+						</option>
+					<?php endforeach;?>
+				</select>
+			</td>
+			<th>节</th>
+		</tr>
+		<tr>
+			<!--定义“保存”按钮及样式 -->
+			<td colspan="2" align="center">
+				<input type="submit" value="保存" /> 
+				<!--
+				<input type="reset" value="重置" />
+				-->
+			</td>
+		</tr>
+	</table>
+</form>
+
+<!--如果在settime.php中设置了freetime变量 则执行下述PHP代码
+显示教师当前设置的所有空闲时间-->
+<?php if(isset($freetime)):?>
+	<br>
+	<div class="showfreetime">当前空闲时间：</div>
+	<table class="list">
+		<tr><th>日期</th><th>节次</th></tr>
+		<?php foreach($freetime as $v): ?>
+			<tr>
+				<td><?php echo $v[0]; ?></td>
+				<td><?php echo $v[1]; ?></td>
+			</tr>
+		<?php endforeach;?>
+	</table>
+<?php endif; ?>
+
+<script>
+	//点亮当前菜单链接
+	setMenu('settime');
+</script>
+<?php require './view/footer.html';
